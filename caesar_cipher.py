@@ -1,14 +1,16 @@
 import string
 
-user_message = input("Enter a message containing only A-Za-z or spaces: ")
+user_message = input("Enter a message containing only A-Za-z, spaces, or numbers: ")
 user_key = int(input("Enter Caesar encryption key: "))
 decrypted = ""
 
 #TODO: ALPHA can be extended to include all possible symbols.
-ALPHA = string.ascii_uppercase + string.ascii_lowercase + ' ' + "'"
-print(ALPHA)
+ALPHA = string.ascii_uppercase + string.ascii_lowercase + ' ' + "'" + '0123456789'
+
+
 UPPER_ALPHA = string.ascii_uppercase
-print(len(UPPER_ALPHA))
+
+
 def encrypt(message, key):
     encryption_index = 0
     encrypted = ''
@@ -16,7 +18,7 @@ def encrypt(message, key):
 
         if letter in ALPHA:
             #TODO: Include a try/except here for missing characters in ALPHA.
-            encryption_index = ALPHA.index(letter) + key
+            encryption_index = ALPHA.find(letter) + key
 
             if encryption_index >= len(ALPHA):
                 encryption_index -= len(ALPHA)
@@ -33,7 +35,7 @@ def encrypt(message, key):
 def decrypt(message, key):
     decrypted = ''
     for letter in message:
-        decrypted_value = ALPHA.index(letter) - key
+        decrypted_value = ALPHA.find(letter) - key
         if letter in ALPHA:
             decrypted += ALPHA[decrypted_value]
         else:
@@ -42,4 +44,4 @@ def decrypt(message, key):
 
 encrypted_msg = encrypt(user_message,user_key)
 decrypted_msg = decrypt(encrypted_msg, user_key)
-print(encrypted_msg, decrypted_msg)
+print(f'Message: {decrypted_msg} >> **ENCRYPTED TO** >> {encrypted_msg}')

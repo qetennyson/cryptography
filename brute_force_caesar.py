@@ -1,7 +1,7 @@
 import string
 
-message = "Q'Gpi G AzBqBmlGvw'GwvtEGnqBmGkmv'Azqm "
-ALPHA = string.ascii_uppercase + string.ascii_lowercase + ' ' + "'"
+message = 'tolgx,pjrgiyv!ugmv?gq,twzgv;lyg13gsh "gkvnza'
+ALPHA = string.ascii_letters + '.,;!?" ' + '0123456789'
 
 for key in range(len(ALPHA)):
 
